@@ -1,0 +1,27 @@
+<div class="center">
+    <h1>You are one step away from joining millions of users!</h1>
+    <div class="grid">
+        <div class="col-5 flex align-items-center justify-content-center">
+            <div class="p-fluid">
+                <div class="field">
+                    <label for="username">Username</label>
+                    <input type="text" pInputText [(ngModel)]="username"> 
+                    <!-- <span class="ml-2">{{username}}</span> -->
+                </div>
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input pInputText id="password" type="password" [(ngModel)]="password"/>
+                </div>
+                <button pButton label="Login" (click)="ShowName()" ></button>
+                </div>
+        </div>
+        <div class="col-2">
+            <p-divider layout="vertical">
+                <b>OR</b>
+            </p-divider>
+        </div>
+        <div class="col-4 flex align-items-center justify-content-center">
+            <button class="fancybtn">Sign up</button>
+        </div>
+    </div>
+</div>
