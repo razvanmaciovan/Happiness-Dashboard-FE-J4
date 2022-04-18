@@ -12,8 +12,10 @@ export class UserFormComponent implements OnInit {
   ngOnInit(): void {
   }
   username: string | undefined;
+  password: string | undefined;
   ShowName() {
     console.log(this.username);
+    console.log(this.password);
   }
 
 }
