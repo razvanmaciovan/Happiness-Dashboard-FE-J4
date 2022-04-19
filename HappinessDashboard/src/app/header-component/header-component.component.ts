@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {MenuItem} from 'primeng/api';
+
 
 @Component({
   selector: 'app-header-component',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponentComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
 
-  ngOnInit(): void {
-  }
+   }
+  items: MenuItem[] = [];
+
+    ngOnInit() {
+        this.items = [
+            {
+                label: 'View polls',
+                icon: 'pi pi-fw pi-list',
+                url: 'http://localhost:4200/polls'
+            },
+            {
+                label: 'Join a team',
+                icon: 'pi pi-fw pi-plus',
+                items: [
+                    {label: 'I already have a team', icon: 'pi pi-fw pi-users', url: 'http://localhost:4200/select'},
+                    {label: 'Create team', icon: 'pi pi-fw pi-user-plus', url: 'http://localhost:4200/create'},
+                ]
+            }
+        ];
+    }
+    
 
 }
