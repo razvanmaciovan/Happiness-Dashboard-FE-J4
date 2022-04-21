@@ -8,7 +8,7 @@ import {DividerModule} from 'primeng/divider';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import { UserFormComponent } from './user-form/user-form.component';
-import { HeaderComponentComponent } from './header-component/header-component.component';
+import { HeaderComponent } from './header/header.component';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {MenubarModule} from 'primeng/menubar';
 
@@ -17,7 +17,7 @@ import {MenubarModule} from 'primeng/menubar';
   declarations: [
     AppComponent,
     UserFormComponent,
-    HeaderComponentComponent
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
