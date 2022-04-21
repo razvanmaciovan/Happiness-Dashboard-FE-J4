@@ -8,12 +8,16 @@ import {DividerModule} from 'primeng/divider';
 import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import { UserFormComponent } from './user-form/user-form.component';
+import { HeaderComponentComponent } from './header-component/header-component.component';
+import {TabMenuModule} from 'primeng/tabmenu';
+import {MenubarModule} from 'primeng/menubar';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserFormComponent
+    UserFormComponent,
+    HeaderComponentComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,9 @@ import { UserFormComponent } from './user-form/user-form.component';
     DividerModule,
     ButtonModule,
     InputTextModule,
-    FormsModule
+    FormsModule,
+    TabMenuModule,
+    MenubarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
