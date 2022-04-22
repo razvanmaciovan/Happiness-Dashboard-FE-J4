@@ -39,6 +39,12 @@ export class HeaderComponent implements OnInit {
                     {label: 'I already have a team', icon: 'pi pi-fw pi-users', url: 'http://localhost:4200/select', command: (event) => this.SelectTeam()},
                     {label: 'Create team', icon: 'pi pi-fw pi-user-plus', url: 'http://localhost:4200/create', command: (event) => this.CreateTeam() },
                 ]
+            },
+            {
+                label: 'Manage account',
+                icon: 'pi pi-fw pi-cog',
+                routerLink: '/user-form',
+                routerLinkActiveOptions: 'active'
             }
         ];
     }

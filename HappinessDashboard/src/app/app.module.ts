@@ -11,6 +11,7 @@ import { UserFormComponent } from './user-form/user-form.component';
 import { HeaderComponent } from './header/header.component';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {MenubarModule} from 'primeng/menubar';
+import { AppRoutingModule } from './app-routing.module';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import {MenubarModule} from 'primeng/menubar';
     InputTextModule,
     FormsModule,
     TabMenuModule,
-    MenubarModule
+    MenubarModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
