@@ -14,7 +14,7 @@ export class ConfigService {
   getUsersList():Observable<IUser[]> {
     return this.http.get<IUser[]>(this.configUrl + "/users");
   }
-  getUser(username:string):Observable<IUser> {
-    return this.http.get<IUser>(this.configUrl + "/users/" + username);
+  getUserByUsername(username:string) {
+    return this.http.get(this.configUrl + "/users/" + username);
   }
 }
