@@ -12,13 +12,16 @@ import { HeaderComponent } from './header/header.component';
 import {TabMenuModule} from 'primeng/tabmenu';
 import {MenubarModule} from 'primeng/menubar';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './user-form/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     UserFormComponent,
-    HeaderComponent
+    HeaderComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import { AppRoutingModule } from './app-routing.module';
     FormsModule,
     TabMenuModule,
     MenubarModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
