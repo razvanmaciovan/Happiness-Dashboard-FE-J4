@@ -15,6 +15,6 @@ export class ConfigService {
     return this.http.get<IUser[]>(this.configUrl + "/users");
   }
   getUserByUsername(username:string) {
-    return this.http.get(this.configUrl + "/users/" + username);
+    return this.http.get(this.configUrl + "/user/users/" + username);
   }
 }
