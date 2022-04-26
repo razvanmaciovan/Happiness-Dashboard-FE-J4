@@ -34,6 +34,7 @@ export class UserFormComponent implements OnInit {
   }
   
   Login(){
+    if(this.CheckUsername(this.username) == true){
     this.service.getUserByUsername(this.username).subscribe((data:any) => 
     {
       if(data == null){
@@ -49,28 +50,24 @@ export class UserFormComponent implements OnInit {
 
         
     });
-      
-    //   if(element == null){
-    //     alert("User not found");
-    //   }
-    //   // else if(this.password != element.userPassword || element.userPassword == null){
-    //   //   alert("Password incorrect");
-    //   // }
-    //   else{
-    //     console.log(element);
-    //   }
-    // })
-    // this.currentUser$.subscribe((value: IUser) => {
-    //   let user: IUser = value;
-    //   console.log(user.userName)
-    //   console.log(user.userId)
-    //   console.log(user.userPassword)
+  }
+  else{
+    alert(this.CheckUsername(this.username));
+  }
+  }
+  CheckUsername(username:string){
+    if(this.username == null) return "Username cannot be empty";
+    if(!this.AlphaNumberOnly(username)) return "Username can only contain letters and/or numbers";
 
-    // })
-    // this.currentUser$.forEach(element => {
-    
-    // });
-  
+    return true
+  }
+
+  AlphaNumberOnly (username : string) {  // Accept only alpha numerics, not special characters 
+    var regex = new RegExp("^[a-zA-Z0-9]+$");
+    if (regex.test(username)) {
+        return true;
+    }
+    return false;
   }
   
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { map, Observable, tap } from 'rxjs';
+import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { catchError, map, Observable, pipe, tap, throwError } from 'rxjs';
 import { IUser } from './user-form/user-form.component';
 
 @Injectable({
@@ -12,9 +12,18 @@ export class ConfigService {
   constructor(private http: HttpClient) { }
 
   getUsersList():Observable<IUser[]> {
-    return this.http.get<IUser[]>(this.configUrl + "/users");
+    return this.http.get<IUser[]>(this.configUrl + "/user/users").pipe(
+      catchError(this.handleError));
   }
   getUserByUsername(username:string) {
-    return this.http.get(this.configUrl + "/user/users/" + username);
+    return this.http.get(this.configUrl + "/user/users/" + username).pipe(
+      catchError(this.handleError));
+  }
+  handleError(err: HttpErrorResponse){
+    if(err.status === 404){
+      alert("User not found");
+    }
+    return throwError(() => err);
+
   }
 }
