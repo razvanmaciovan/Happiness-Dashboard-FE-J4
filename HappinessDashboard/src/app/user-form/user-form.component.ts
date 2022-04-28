@@ -20,36 +20,36 @@ export class UserFormComponent implements OnInit {
   currentUser$!: IUser;
   username!: string;
   password!: string | undefined;
-  
+
   constructor(private service:ConfigService) { }
 
-  
+
   ngOnInit(): void {
     this.userList$ = this.service.getUsersList();
     this.userList$.forEach(element => {
       console.log(element);
-      
+
     });
-    
+
   }
-  
+
   Login(){
-    this.service.getUserByUsername(this.username).subscribe((data:any) => 
+    this.service.getUserByUsername(this.username).subscribe((data:any) =>
     {
       if(data == null){
         alert("User not found");
       }
       else if(this.password != data.password)
-      { 
+      {
           alert("Password is incorrect")
       }
       else{
         console.log(data)
       }
 
-        
+
     });
-      
+
     //   if(element == null){
     //     alert("User not found");
     //   }
@@ -68,9 +68,9 @@ export class UserFormComponent implements OnInit {
 
     // })
     // this.currentUser$.forEach(element => {
-    
+
     // });
-  
+
   }
-  
+
 }

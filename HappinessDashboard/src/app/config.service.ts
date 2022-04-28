@@ -17,4 +17,9 @@ export class ConfigService {
   getUserByUsername(username:string) {
     return this.http.get(this.configUrl + "/users/" + username);
   }
+  registerUser(username:string , password:string){
+    return this.http.post(this.configUrl + "/user/register" , { "username": username,
+                                                                "password": password} );
+  }
+
 }
