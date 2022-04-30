@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
-import { ConfigService } from '../config.service';
+import { ConfigService } from '../../config.service';
 
 
 @Component({
-  selector: 'app-signup-form',
-  templateUrl: './signup-form.component.html',
-  styleUrls: ['./signup-form.component.css']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
-export class SignupFormComponent implements OnInit {
+export class SignupComponent implements OnInit {
   username!: string;
   password!: string;
 
