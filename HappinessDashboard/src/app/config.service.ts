@@ -12,10 +12,10 @@ export class ConfigService {
   constructor(private http: HttpClient) { }
 
   getUsersList():Observable<IUser[]> {
-    return this.http.get<IUser[]>(this.configUrl + "/users");
+    return this.http.get<IUser[]>(this.configUrl + "/user/users");
   }
   getUserByUsername(username:string) {
-    return this.http.get(this.configUrl + "/users/" + username);
+    return this.http.get(this.configUrl + "/user/users/" + username);
   }
   registerUser(username:string , password:string){
     return this.http.post(this.configUrl + "/user/register" , { "username": username,
