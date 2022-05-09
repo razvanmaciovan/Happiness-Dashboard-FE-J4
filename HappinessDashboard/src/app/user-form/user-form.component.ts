@@ -56,7 +56,7 @@ export class UserFormComponent implements OnInit {
   }
   }
   CheckUsername(username:string){
-    if(this.username == null || this.username === undefined) return "Username cannot be empty";
+    if(this.username == null) return "Username cannot be empty";
     if(!this.AlphaNumberOnly(username)) return "Username can only contain letters and/or numbers";
 
     return true

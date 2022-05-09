@@ -21,6 +21,8 @@ export class SignupComponent implements OnInit {
   }
 
   SignUp() {
-    this.service.registerUser(this.username, this.password).subscribe();
+    this.service.registerUser(this.username, this.password).subscribe(res=>{
+      console.log(res);
+    });
   }
 }
