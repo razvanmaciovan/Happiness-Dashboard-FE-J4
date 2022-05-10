@@ -14,12 +14,14 @@ import {MenubarModule} from 'primeng/menubar';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginComponent } from './user-form/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import { SignupComponent } from './user-form/SignUp-Form/signup.component';
+import { PasswordModule } from "primeng/password";
 
 @NgModule({
   declarations: [
     AppComponent,
     UserFormComponent,
+    SignupComponent,
     HeaderComponent,
     LoginComponent
   ],
@@ -34,7 +36,8 @@ import { HttpClientModule } from '@angular/common/http';
     TabMenuModule,
     MenubarModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    PasswordModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -20,19 +20,19 @@ export class UserFormComponent implements OnInit {
   currentUser$!: IUser;
   username!: string;
   password!: string | undefined;
-  
+
   constructor(private service:ConfigService) { }
 
-  
+
   ngOnInit(): void {
     this.userList$ = this.service.getUsersList();
     this.userList$.forEach(element => {
       console.log(element);
-      
+
     });
-    
+
   }
-  
+
   Login(){
     if(this.CheckUsername(this.username) == true){
     this.service.getUserByUsername(this.username).subscribe((data:any) => 
@@ -60,6 +60,7 @@ export class UserFormComponent implements OnInit {
     if(!this.AlphaNumberOnly(username)) return "Username can only contain letters and/or numbers";
 
     return true
+
   }
 
   AlphaNumberOnly (username : string) {  // Accept only alpha numerics, not special characters 
@@ -69,5 +70,5 @@ export class UserFormComponent implements OnInit {
     }
     return false;
   }
-  
+
 }

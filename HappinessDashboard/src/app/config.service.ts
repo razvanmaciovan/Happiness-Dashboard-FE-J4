@@ -11,6 +11,13 @@ export class ConfigService {
 
   constructor(private http: HttpClient) { }
 
+  
+
+  registerUser(username:string , password:string){
+    return this.http.post(this.configUrl + "/user/register" , { "username": username,
+                                                                "password": password} );
+  }
+
   getUsersList():Observable<IUser[]> {
     return this.http.get<IUser[]>(this.configUrl + "/user/users").pipe(
       catchError(this.handleError));
