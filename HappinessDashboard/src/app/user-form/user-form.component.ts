@@ -60,6 +60,7 @@ export class UserFormComponent implements OnInit {
     if(!this.AlphaNumberOnly(username)) return "Username can only contain letters and/or numbers";
 
     return true
+
   }
 
   AlphaNumberOnly (username : string) {  // Accept only alpha numerics, not special characters 
