@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import {MenuItem} from 'primeng/api';
 
 
@@ -9,7 +10,7 @@ import {MenuItem} from 'primeng/api';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() {
+  constructor(private router: Router) {
 
    }
 
@@ -24,6 +25,11 @@ export class HeaderComponent implements OnInit {
    SelectTeam() {
          console.log("Select team");
    }
+   ScrollToUserForm() {
+       if(this.router.url === '/home')
+        scrollTo(0,2000);
+   }
+
     ngOnInit(): void{
         this.items = [
             {
@@ -43,8 +49,7 @@ export class HeaderComponent implements OnInit {
             {
                 label: 'Manage account',
                 icon: 'pi pi-fw pi-cog',
-                routerLink: '/user-form',
-                routerLinkActiveOptions: 'active'
+                command: (event) => this.ScrollToUserForm()
             }
         ];
     }
