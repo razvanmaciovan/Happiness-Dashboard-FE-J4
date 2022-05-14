@@ -1,0 +1,32 @@
+.center{
+    
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    z-index: -1;
+    margin: auto;
+    
+}
+.login{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(51,51,51,1);
+    z-index: 10;
+    overflow:auto;
+}
+.full-height{
+    height: 100%;
+
+}
+.test{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    height: 700px;
+    top:100%;
+    
+}

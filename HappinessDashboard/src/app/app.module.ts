@@ -16,6 +16,9 @@ import { LoginComponent } from './user-form/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './user-form/SignUp-Form/signup.component';
 import { PasswordModule } from "primeng/password";
+import {CardModule} from 'primeng/card';
+import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { PasswordModule } from "primeng/password";
     UserFormComponent,
     SignupComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +42,8 @@ import { PasswordModule } from "primeng/password";
     MenubarModule,
     AppRoutingModule,
     HttpClientModule,
-    PasswordModule
+    PasswordModule,
+    CardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
