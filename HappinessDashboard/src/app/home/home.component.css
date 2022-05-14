@@ -41,8 +41,8 @@
 .scrollDiv{
     position: absolute;
     width: 100%;
-    left: 0;
-    height: 700px;
+    height: 100vh;
+    left:0;
     top:100%;
     
 }
