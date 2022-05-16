@@ -18,6 +18,11 @@ export class ConfigService {
                                                                 "password": password} );
   }
 
+  getPollById(id:number) {
+    return this.http.get(this.configUrl + "/poll/get/" + id).pipe(
+      catchError(this.handleError));
+  }
+
   getUsersList():Observable<IUser[]> {
     return this.http.get<IUser[]>(this.configUrl + "/user/users").pipe(
       catchError(this.handleError));
@@ -28,7 +33,7 @@ export class ConfigService {
   }
   handleError(err: HttpErrorResponse){
     if(err.status === 404){
-      alert("User not found");
+      alert("Not found");
     }
     return throwError(() => err);
 

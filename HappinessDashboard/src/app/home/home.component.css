@@ -18,15 +18,18 @@
     z-index: 10;
     overflow:auto;
 }
-.full-height{
+.flexbox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
     position: absolute;
     top:50%;
     left:50%;
     transform: translate(-50%,-50%);
-    width: 70%;
-    height: 70%;
-    background: rgb(2,44,101);
-    background: radial-gradient(circle, rgba(2,44,101,1) 0%, rgba(18,46,85,1) 100%);
+    width: 70vw;
+    height: 70vh;
+    background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 100%);
     /* background-image: url("https://www.qualtrics.com/m/assets/marketplace/wp-content/uploads/2020/03/Quick-Poll.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -38,6 +41,37 @@
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 
 }
+.flexbox-item{
+    background-color: aqua;
+    margin: 10px;
+}
+
+@media (max-width:360px){
+    .flexbox-item{
+        height: 220px;
+        background-color: black;
+    }
+}
+@media (max-width:486px) and (min-width:361px){
+    .flexbox-item{
+        height:  150px;
+        min-width: 220px;
+        background-color: aliceblue;
+    }
+}
+@media (max-width:720px) and (min-width:486px){
+    .flexbox-item{
+        height:  150px;
+        width: 150px;
+    }
+}
+@media (min-width:720px){
+    .flexbox-item{
+        width: 150px;
+        height: 150px;
+    }
+}
+
 .scrollDiv{
     position: absolute;
     width: 100%;
