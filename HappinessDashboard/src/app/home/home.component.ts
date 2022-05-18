@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ConfigService } from '../config.service';
 import { HostListener } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 export interface IPoll{
+  title:string;
   topic_id:number;
   status:boolean;
   dateOfCreation:Date;
@@ -26,19 +28,11 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  Test(){
-    this.service.getPollById(1).subscribe((data:any) => {
-      console.log(data);
-    });
+  // Test(){
+  //   this.service.getPollById(1).subscribe((data:Observable) => {
+  //     console.log(data);
+  //   });
       
-  }
+  // }
 
-  wrapText(text:string){
-    const maxLength = window.innerHeight;
-    console.log(maxLength);
-    if(text.length > maxLength){
-      return text.substr(0,maxLength) + "...";
-    }
-    return text;
-  }
 }
