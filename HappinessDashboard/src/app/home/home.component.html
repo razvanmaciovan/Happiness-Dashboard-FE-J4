@@ -1,11 +1,18 @@
 
 <div class = "flexbox">
-    <div class="flexbox-item" *ngFor="let item of pollList$|async"><h1 style="color: black">{{item.topic_id}}</h1></div>
+    <div class="flexbox-item" *ngFor="let item of pollList$|async;index as i">
+        <div class="titlebar">
+            <p>{{i}}</p>
+        </div>
+        <h1>"This is a longlonglong very longlong longlonglong really long longlonglong text and this is the id:"
+        </h1>
+    </div>
     
 </div>
-<button pButton label="Login" (click)="Test()" ></button>
 <div class="userform">
-    <app-user-form></app-user-form>
+    <div class="secondDiv">
+        <app-user-form></app-user-form>
+    </div>
 </div>
 <!-- <tr *ngFor="let item of portList$|async" >
     <td *ngIf="item.portCountryId == 1">{{item.portId}}</td>

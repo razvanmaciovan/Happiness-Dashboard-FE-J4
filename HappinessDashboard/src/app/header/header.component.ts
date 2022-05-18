@@ -25,9 +25,9 @@ export class HeaderComponent implements OnInit {
    SelectTeam() {
          console.log("Select team");
    }
-   ScrollToUserForm() {
+   GoToUserForm() {
        if(this.router.url === '/home')
-        scrollTo(0,2000);
+        window.scrollTo({top:window.innerHeight, behavior: 'smooth'});
    }
 
     ngOnInit(): void{
@@ -35,7 +35,7 @@ export class HeaderComponent implements OnInit {
             {
                 label: 'View polls',
                 icon: 'pi pi-fw pi-list',
-                url: 'http://localhost:4200/polls',
+                routerLink: ['/user-form'],
                 command: (event) => this.ViewPoll()
             },
             {
@@ -49,7 +49,7 @@ export class HeaderComponent implements OnInit {
             {
                 label: 'Manage account',
                 icon: 'pi pi-fw pi-cog',
-                command: (event) => this.ScrollToUserForm()
+                command: (event) => this.GoToUserForm()
             }
         ];
     }
