@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import {MenuItem} from 'primeng/api';
+import { MenuItem } from 'primeng/api';
 
+interface Topic {
+  name: string
+}
 
 @Component({
   selector: 'app-header',
@@ -12,9 +15,19 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router: Router) {
 
-   }
+    this.topics = [
+        {name: 'Topic1'},
+        {name: 'Topic2'},
+        {name: 'Topic3'}
+    ];
+    this.selectedTopics = []
+  }
 
    items: MenuItem[] = [];
+
+   topics: Topic[];
+
+   selectedTopics: Topic[];
    
    CreateTeam() {
        console.log("Create team");

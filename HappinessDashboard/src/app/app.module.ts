@@ -19,6 +19,7 @@ import { PasswordModule } from "primeng/password";
 import {CardModule} from 'primeng/card';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MultiSelectModule } from 'primeng/multiselect';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     AppRoutingModule,
     HttpClientModule,
     PasswordModule,
-    CardModule
+    CardModule,
+    MultiSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

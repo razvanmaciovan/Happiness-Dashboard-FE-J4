@@ -1,3 +1,14 @@
-<p-menubar [model]="items"></p-menubar>
+<p-menubar [model]="items">
 
+    <p-multiSelect
+        [name]="'Testing'"
+        [style]="{'width': '400px'}"
+        [options]="topics" 
+        [(ngModel)]="selectedTopics" 
+        optionLabel="name"
+        display="chip"
+        >
+    </p-multiSelect>
+
+</p-menubar>
 
