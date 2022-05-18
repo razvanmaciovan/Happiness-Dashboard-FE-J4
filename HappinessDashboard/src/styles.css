@@ -7,4 +7,12 @@ body {
     font-family: var(--font-family);
     color: var(--text-color);
   }
-
+::-webkit-scrollbar{
+    width:10px;
+}
+::-webkit-scrollbar-track{
+    background: rgba(1, 1, 1, 0.1);
+}
+::-webkit-scrollbar-thumb{
+    background: pink;
+}

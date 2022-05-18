@@ -2,11 +2,13 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { catchError, map, Observable, pipe, tap, throwError } from 'rxjs';
 import { IUser } from './user-form/user-form.component';
+import { IPoll } from './home/home.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConfigService {
+  
   readonly configUrl = 'http://localhost:8080/api';
 
   constructor(private http: HttpClient) { }
@@ -18,6 +20,15 @@ export class ConfigService {
                                                                 "password": password} );
   }
 
+  getPollById(id:number) {
+    return this.http.get(this.configUrl + "/poll/get/" + id).pipe(
+      catchError(this.handleError));
+  }
+  getPollsList():Observable<IPoll[]> {
+    return this.http.get<IPoll[]>(this.configUrl + "/poll/get/all").pipe(
+      catchError(this.handleError));
+    }
+    
   getUsersList():Observable<IUser[]> {
     return this.http.get<IUser[]>(this.configUrl + "/user/users").pipe(
       catchError(this.handleError));
@@ -28,7 +39,7 @@ export class ConfigService {
   }
   handleError(err: HttpErrorResponse){
     if(err.status === 404){
-      alert("User not found");
+      alert("Not found");
     }
     return throwError(() => err);
 
