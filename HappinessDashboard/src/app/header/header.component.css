@@ -4,10 +4,18 @@
     top:0;
     left: 0;
 }
-
-p-multiSelect{
+p-multiselect{
     position: relative;
-    padding-right: 59rem;
 }
+:host ::ng-deep .p-multiselect {
+    width: 30vw;
+}
+
+@media (max-width: 768px) {
+    :host ::ng-deep .p-multiselect {
+        width: 50vw;
+    }
+}
+    
 
 
