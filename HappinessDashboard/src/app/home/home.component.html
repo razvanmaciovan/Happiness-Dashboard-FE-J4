@@ -2,9 +2,10 @@
 <div class = "flexbox">
     <div class="flexbox-item" *ngFor="let item of pollList$|async;index as i">
         <div class="titlebar">
-            <p>{{i}}</p>
+            <p>{{item.topic_id}}</p>
         </div>
-        <h1>"This is a longlonglong very longlong longlonglong really long longlonglong text and this is the id:"
+        <h1>
+             {{item.title}}
         </h1>
     </div>
     

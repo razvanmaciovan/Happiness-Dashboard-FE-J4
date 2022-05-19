@@ -20,12 +20,12 @@ export class ConfigService {
                                                                 "password": password} );
   }
 
-  getPollById(id:number) {
-    return this.http.get(this.configUrl + "/poll/get/" + id).pipe(
+  getPollById(id:number):Observable<IPoll> {
+    return this.http.get<IPoll>(this.configUrl + "/poll/" + id).pipe(
       catchError(this.handleError));
   }
-  getPollsList():Observable<IPoll[]> {
-    return this.http.get<IPoll[]>(this.configUrl + "/poll/get/all").pipe(
+  getPollsList():Observable<IPoll[]> { /*add limit parameter*/
+    return this.http.get<IPoll[]>(this.configUrl + "/poll/").pipe(
       catchError(this.handleError));
     }
     
