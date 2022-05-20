@@ -28,9 +28,7 @@ export class PollService {
     }
 
     public handleError(err: HttpErrorResponse) {
-      if(err.status === 404){
-        alert("Not found");
-      }
+      console.log("Not found");
       return throwError(() => err);
   
     }

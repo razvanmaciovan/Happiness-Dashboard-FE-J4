@@ -1,0 +1,49 @@
+.view{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7rem;
+    width: 60%;
+    background: transparent;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    /*box shadow*/
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+
+}
+.poll-holder{
+    background: var(--surface-b);
+    height: 80vh;
+    width: 100%;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-top-style: solid;
+    border-top-color: var(--surface-d);
+}
+.poll-holder > h1{
+    overflow: hidden;
+    text-align: center;
+    margin: 1rem;
+}
+.poll-holder > .comment{
+    overflow: hidden;
+    text-align: right;
+    margin-right: 1rem;
+}
+.comment-box{
+    margin-top: 10vh;
+    display: grid;
+    justify-content: center;
+}
+.rating{
+    text-align: center;
+}
+@media (max-width: 768px) {
+    .poll-holder{
+        width: 100%;
+        height: 50vh;
+    }
+    .view{
+        width: 100%;
+    }
+}

@@ -20,6 +20,8 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { PollComponent } from './poll/poll.component';
+import { RatingModule } from 'primeng/rating';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { PollComponent } from './poll/poll.component';
     HttpClientModule,
     PasswordModule,
     CardModule,
-    MultiSelectModule
+    MultiSelectModule,
+    RatingModule,
+    InputTextareaModule
   ],
   providers: [],
   bootstrap: [AppComponent]

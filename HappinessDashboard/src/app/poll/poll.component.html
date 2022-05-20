@@ -1,3 +1,16 @@
-<p>poll works!</p>
-<p>poll works!</p>
-<p>poll works!</p>
+<div class="view">
+    <div class="poll-holder">
+        <h1>{{poll.title}}</h1>
+        <p class="comment">Made by <span style="color: var(--blue-400);"> an anonymous user</span></p>
+        <p-rating class="rating" [(ngModel)]="val" [cancel]="false"></p-rating>
+        <div class="comment-box">
+        <span class="p-float-label">
+            <textarea id="float-input" rows="5" cols="30" pInputTextarea [(ngModel)]="comment"></textarea>
+            <label for="float-input">Leave a comment ( optional )</label>
+        </span>
+        </div>
+    </div>
+    <div class="right">
+
+    </div>
+</div>

@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
 import { ParamMap } from '@angular/router';
 export interface IPoll{
   id:number;
-  title:string;
   topic_id:number;
+  title:string;
   status:boolean;
   dateOfCreation:Date;
   dateOfClosing:Date;
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
   
   public openPoll(poll:IPoll):void{
     this.route.navigate(['/poll',poll.id]);
-    alert("Poll " + poll.id + " is opened");
+    //alert("Poll " + poll.id + " is opened");
   }
   // Test(){
   //   this.service.getPollById(1).subscribe((data:Observable) => {
