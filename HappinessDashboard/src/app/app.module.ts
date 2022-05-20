@@ -12,7 +12,6 @@ import { HeaderComponent } from './header/header.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { MenubarModule } from 'primeng/menubar';
 import { AppRoutingModule } from './app-routing.module';
-import { LoginComponent } from './user-form/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SignupComponent } from './user-form/SignUp-Form/signup.component';
 import { PasswordModule } from "primeng/password";
@@ -20,6 +19,7 @@ import { CardModule } from 'primeng/card';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MultiSelectModule } from 'primeng/multiselect';
+import { PollComponent } from './poll/poll.component';
 
 @NgModule({
   declarations: [
@@ -27,9 +27,9 @@ import { MultiSelectModule } from 'primeng/multiselect';
     UserFormComponent,
     SignupComponent,
     HeaderComponent,
-    LoginComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PollComponent
   ],
   imports: [
     BrowserModule,

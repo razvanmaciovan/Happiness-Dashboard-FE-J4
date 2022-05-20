@@ -29,7 +29,6 @@
     width: 70%;
     height: 100%;
     background: radial-gradient(circle, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 100%);
-    z-index: -1;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     /*box shadow*/
@@ -41,7 +40,13 @@
     flex-grow: 1;
     height: 10rem;
     margin: 4px;
-    background :#323436; 
+    background :#323436;
+    cursor: pointer; 
+    transition: all 0.3s ease-in-out;
+}
+.flexbox-item:hover{
+    width: 15.5rem;
+    /*height: 15rem;*/  
 }
 .flexbox-item h1{
     color:#fff;

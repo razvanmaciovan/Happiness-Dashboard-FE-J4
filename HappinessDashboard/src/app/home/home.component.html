@@ -1,7 +1,7 @@
 
 <div class = "flexbox">
-    <div class="flexbox-item" *ngFor="let item of pollList$|async;index as i">
-        <div class="titlebar">
+    <div class="flexbox-item" *ngFor="let item of pollList$|async" (click)="openPoll(item)" >
+        <div class="titlebar" >
             <p>{{item.topic_id}}</p>
         </div>
         <h1>
