@@ -14,29 +14,6 @@ export class ConfigService {
   constructor(private http: HttpClient) { }
 
   
-
-  registerUser(username:string , password:string){
-    return this.http.post(this.configUrl + "/user/register" , { "username": username,
-                                                                "password": password} );
-  }
-
-  getPollById(id:number) {
-    return this.http.get(this.configUrl + "/poll/get/" + id).pipe(
-      catchError(this.handleError));
-  }
-  getPollsList():Observable<IPoll[]> {
-    return this.http.get<IPoll[]>(this.configUrl + "/poll/get/all").pipe(
-      catchError(this.handleError));
-    }
-    
-  getUsersList():Observable<IUser[]> {
-    return this.http.get<IUser[]>(this.configUrl + "/user/users").pipe(
-      catchError(this.handleError));
-  }
-  getUserByUsername(username:string) {
-    return this.http.get(this.configUrl + "/user/users/" + username).pipe(
-      catchError(this.handleError));
-  }
   handleError(err: HttpErrorResponse){
     if(err.status === 404){
       alert("Not found");

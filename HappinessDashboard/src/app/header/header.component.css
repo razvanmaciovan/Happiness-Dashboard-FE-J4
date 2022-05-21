@@ -3,4 +3,20 @@
     width: 100%;
     top:0;
     left: 0;
+    z-index: 1000;
 }
+p-multiselect{
+    position: relative;
+}
+:host ::ng-deep .p-multiselect {
+    width: 30vw;
+}
+
+@media (max-width: 768px) {
+    :host ::ng-deep .p-multiselect {
+        width: 50vw;
+    }
+}
+    
+
+
