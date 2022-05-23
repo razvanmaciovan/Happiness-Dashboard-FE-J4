@@ -30,7 +30,6 @@ export class HomeComponent implements OnInit {
     this.pollList$ = this.service.getRecentPolls(20);
     this.pollList$.forEach(element => {
       console.log(element);
-
     });
   }
 

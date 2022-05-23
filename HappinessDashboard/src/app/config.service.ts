@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
 import { catchError, map, Observable, pipe, tap, throwError } from 'rxjs';
-import { IUser } from './user-form/user-form.component';
-import { IPoll } from './home/home.component';
 
 @Injectable({
   providedIn: 'root'

@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { map } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
-import { ConfigService } from '../config.service';
 import { UserService } from './user.service';
 
 export interface IUser {
