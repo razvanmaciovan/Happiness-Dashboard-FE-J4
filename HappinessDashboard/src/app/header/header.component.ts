@@ -24,21 +24,12 @@ export class HeaderComponent implements OnInit, DoCheck {
   }
   
    
-   CreateTeam() {
+   CreatePoll() {
        console.log("Create team");
    }
-
-   ViewPoll() {
-       console.log("View polls");
-   }
-
-   SelectTeam() {
-         console.log("Select team");
-   }
-
    GoToUserForm() {
-       if(this.router.url === '/home')
-        window.scrollTo({top:window.innerHeight, behavior: 'smooth'});
+       if(this.router.url === '/home') window.scrollTo({top:window.innerHeight, behavior: 'smooth'});
+       else this.router.navigate(['/user-form']);
    }
 
     ngOnInit(): void{
@@ -47,17 +38,11 @@ export class HeaderComponent implements OnInit, DoCheck {
 
       this.items = [
           {
-              label: 'View polls',
+              label: 'Polls',
               icon: 'pi pi-fw pi-list',
-              routerLink: ['/user-form'],
-              command: (event) => this.ViewPoll()
-          },
-          {
-              label: 'Join a team',
-              icon: 'pi pi-fw pi-plus',
               items: [
-                  {label: 'I already have a team', icon: 'pi pi-fw pi-users', url: 'http://localhost:4200/select', command: (event) => this.SelectTeam()},
-                  {label: 'Create team', icon: 'pi pi-fw pi-user-plus', url: 'http://localhost:4200/create', command: (event) => this.CreateTeam() },
+                  {label: 'Discover', icon: 'pi pi-fw pi-ticket',  routerLink: ['/discover/']},
+                  {label: 'Create Poll', icon: 'pi pi-fw pi-plus',  command: (event) => this.CreatePoll()},
               ]
           },
           {
