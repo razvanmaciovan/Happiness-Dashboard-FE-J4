@@ -22,6 +22,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   ngDoCheck() {
     // console.log(this.selectedTopics) // uncomment for debug only
   }
+  
    
    CreateTeam() {
        console.log("Create team");

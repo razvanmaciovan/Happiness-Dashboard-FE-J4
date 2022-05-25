@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { ConfigService } from '../config.service';
 import { PollService } from '../poll/poll.service';
 import { HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ParamMap } from '@angular/router';
+import { ITopic, TopicService} from '../topic.service';
 export interface IPoll{
   id:number;
-  topic_id:number;
+  topicName:string;
   title:string;
   status:boolean;
-  dateOfCreation:Date;
-  dateOfClosing:Date;
+  daysTilClosing:number;
 }
 @Component({
   selector: 'app-home',
@@ -21,17 +21,34 @@ export interface IPoll{
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service:PollService,private route:Router) { 
+  constructor(private service:PollService,private route:Router,private topicService:TopicService) { 
 
   }
   
   pollList$: Observable<IPoll[]> | undefined;
   ngOnInit(): void {
     this.pollList$ = this.service.getRecentPolls(20);
-    this.pollList$.forEach(element => {
-      console.log(element);
-    });
+    
+    
   }
+  
+  
+  // public getTopicNameFromPoll(topic_id:number):string{
+  //   this.topicService.getTopicById(topic_id).subscribe(
+  //     {
+  //         next: (topic) => {
+  //           return topic.name;
+  //         },
+  //         error: (err) => {
+
+  //           console.log(err.status);
+  //           //this.route.navigate(['/error']);
+  //         },
+  //         complete: () => console.log('complete')
+  //       });
+  //       return "TEST";
+  //     }
+    
 
   
   public openPoll(poll:IPoll):void{

@@ -5,7 +5,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 
 export interface ITopic{
   id:number;
-  name:String;
+  name:string;
 }
 
 @Injectable({

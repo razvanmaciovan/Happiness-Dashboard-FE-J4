@@ -14,11 +14,10 @@ export class PollComponent implements OnInit {
 
   poll:IPoll = {
     id:0,
-    topic_id:0,
+    topicName:'',
     title:'',
     status:false,
-    dateOfCreation:new Date(),
-    dateOfClosing:new Date()
+    daysTilClosing:0
   };
   constructor(private service:PollService,
     private activatedRoute:ActivatedRoute,

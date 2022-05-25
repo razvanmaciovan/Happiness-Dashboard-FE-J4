@@ -1,7 +1,7 @@
 <div class="view">
     <div class="poll-holder">
         <h1>{{poll.title}}</h1>
-        <p class="comment">Made by <span style="color: var(--blue-400);"> an anonymous user</span></p>
+        <p class="comment">Can be found in <span style="color: var(--blue-400);">{{poll.topicName}}</span></p>
         <p-rating class="rating" [(ngModel)]="val" [cancel]="false"></p-rating>
         <div class="comment-box">
         <span class="p-float-label">
