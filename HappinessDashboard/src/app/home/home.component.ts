@@ -27,7 +27,7 @@ export class HomeComponent implements OnInit {
   
   pollList$: Observable<IPoll[]> | undefined;
   ngOnInit(): void {
-    this.pollList$ = this.service.getRecentPolls(20);
+    this.pollList$ = this.service.getRecentPolls(12);
     
     
   }

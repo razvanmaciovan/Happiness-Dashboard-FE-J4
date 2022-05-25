@@ -44,6 +44,7 @@ export class UserFormComponent implements OnInit {
       }
       else{
         console.log(data)
+        this.service.saveUserData(data);
       }
 
         

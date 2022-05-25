@@ -12,7 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { MenubarModule } from 'primeng/menubar';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignupComponent } from './user-form/SignUp-Form/signup.component';
 import { PasswordModule } from "primeng/password";
 import { CardModule } from 'primeng/card';
@@ -22,6 +22,7 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { PollComponent } from './poll/poll.component';
 import { RatingModule } from 'primeng/rating';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import { TokenInterceptorService } from './token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,11 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     RatingModule,
     InputTextareaModule
   ],
-  providers: [],
+  providers: [UserFormComponent, HomeComponent, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
