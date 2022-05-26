@@ -1,0 +1,32 @@
+
+<div class="view">
+    <div class="poll-holder">
+        <h1>Create a Poll</h1>
+        <div class="field">
+            <p>Title</p>
+            <input type="text" pInputText placeholder="Type your question here" [(ngModel)]="title" />
+            <p>Type of poll</p>
+            <div *ngFor="let category of categories" class="field-checkbox">
+                <p-radioButton [inputId]="category" name="category" [value]="category" [(ngModel)]="selectedCategory"></p-radioButton>
+                <label [for]="category">{{category}}</label>
+            </div>
+            <span class="knob">
+                <p>Delete Poll after a period of days</p>
+                <p-knob [(ngModel)]="daysTillClosing" [min]="0" [max]="30"></p-knob>
+                <small id="title-help" class="block">0 means the Poll will not be deleted</small>
+            </span>
+            <span class = "topics">
+                <p>Select a topic</p>
+                <p-dropdown [options]="topics" [(ngModel)]="selectedTopic" ></p-dropdown>
+            </span>
+            <div class = "btn">
+                <button pButton type="button" label="Create poll" (click)="createPoll()"></button>
+            </div>
+        </div>
+        
+        
+    </div>
+    <div class="right">
+
+    </div>
+</div>

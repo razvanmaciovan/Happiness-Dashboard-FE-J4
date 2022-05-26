@@ -7,6 +7,14 @@ import { IUser } from './user-form.component';
   providedIn: 'root'
 })
 export class UserService {
+  saveUserData(data: IUser) {
+    
+    localStorage.setItem("token",window.btoa(JSON.stringify(data)))
+  }
+
+  getToken(){
+    return localStorage.getItem("token");
+  }
 
   readonly configUrl = 'http://localhost:8080/api/user/';
   constructor(private http:HttpClient) { }

@@ -1,70 +1,82 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
-
-interface Topic {
-  name: string
-}
+import { ITopic } from '../topic.service'
+import { TopicService } from '../topic.service';
+import { UserService } from '../user-form/user.service';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, DoCheck {
 
-  constructor(private router: Router) {
+  items: MenuItem[] = [];
 
-    this.topics = [
-        {name: 'Topic1'},
-        {name: 'Topic2'},
-        {name: 'Topic3'}
-    ];
-    this.selectedTopics = []
+  topics: ITopic[] = [];
+  selectedTopics: ITopic[] = [];
+
+  constructor(private topicService : TopicService, private router: Router,private userService:UserService) {
   }
 
-   items: MenuItem[] = [];
-
-   topics: Topic[];
-
-   selectedTopics: Topic[];
+  ngDoCheck() {
+    // console.log(this.selectedTopics) // uncomment for debug only
+  }
+  
    
-   CreateTeam() {
-       console.log("Create team");
-   }
-   ViewPoll() {
-       console.log("View polls");
-   }
-   SelectTeam() {
-         console.log("Select team");
+   CreatePoll() {
+      if(this.isLoggedIn()){
+        this.router.navigate(['/create']);
+      }
+      else this.router.navigate(['/user-form']);
    }
    GoToUserForm() {
-       if(this.router.url === '/home')
-        window.scrollTo({top:window.innerHeight, behavior: 'smooth'});
+     let currentUser = this.userService.getToken();
+      
+     if(currentUser === null) 
+     {
+       if(this.router.url === '/home') window.scrollTo({top:window.innerHeight, behavior: 'smooth'});
+       else this.router.navigate(['/user-form']);
+     }
+     else {
+       this.router.navigate(['/account']);
+     }
+
+   }
+   isLoggedIn(){
+    let currentUser = this.userService.getToken();
+    if(currentUser === null) return false
+    return true
    }
 
     ngOnInit(): void{
-        this.items = [
-            {
-                label: 'View polls',
-                icon: 'pi pi-fw pi-list',
-                routerLink: ['/user-form'],
-                command: (event) => this.ViewPoll()
-            },
-            {
-                label: 'Join a team',
-                icon: 'pi pi-fw pi-plus',
-                items: [
-                    {label: 'I already have a team', icon: 'pi pi-fw pi-users', url: 'http://localhost:4200/select', command: (event) => this.SelectTeam()},
-                    {label: 'Create team', icon: 'pi pi-fw pi-user-plus', url: 'http://localhost:4200/create', command: (event) => this.CreateTeam() },
-                ]
-            },
-            {
-                label: 'Manage account',
-                icon: 'pi pi-fw pi-cog',
-                command: (event) => this.GoToUserForm()
-            }
-        ];
+      this.items = [
+        {
+              label: '',
+              icon: 'pi pi-fw pi-home',
+              routerLink: ['/home']
+          },
+          {
+              label: 'Polls',
+              icon: 'pi pi-fw pi-list',
+              items: [
+                  {label: 'Discover', icon: 'pi pi-fw pi-ticket',  routerLink: ['/discover/']},
+                  {label: 'Create Poll', icon: 'pi pi-fw pi-plus',  command: (event) => this.CreatePoll()},
+              ]
+          },
+          {
+              label: 'Manage account',
+              icon: 'pi pi-fw pi-cog',
+              command: (event) => this.GoToUserForm()
+          }
+      ];
+
+      this.topicService.getTopicList().subscribe(topics => {
+        this.topics = topics as ITopic[];
+      });
+      // console.log(this.topics) // enable for debug only. do not push to repo
+
     }
     
 

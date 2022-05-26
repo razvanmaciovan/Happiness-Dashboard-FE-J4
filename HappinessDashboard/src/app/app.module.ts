@@ -12,7 +12,7 @@ import { HeaderComponent } from './header/header.component';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { MenubarModule } from 'primeng/menubar';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SignupComponent } from './user-form/SignUp-Form/signup.component';
 import { PasswordModule } from "primeng/password";
 import { CardModule } from 'primeng/card';
@@ -22,6 +22,14 @@ import { MultiSelectModule } from 'primeng/multiselect';
 import { PollComponent } from './poll/poll.component';
 import { RatingModule } from 'primeng/rating';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import { TokenInterceptorService } from './token-interceptor.service';
+import { CreatePollComponent } from './poll/create-poll/create-poll.component';
+import { ViewPollsComponent } from './poll/view-polls/view-polls.component';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {KnobModule} from 'primeng/knob';
+import {CascadeSelectModule} from 'primeng/cascadeselect';
+import {DropdownModule} from 'primeng/dropdown';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +39,9 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     HeaderComponent,
     HomeComponent,
     PageNotFoundComponent,
-    PollComponent
+    PollComponent,
+    CreatePollComponent,
+    ViewPollsComponent
   ],
   imports: [
     BrowserModule,
@@ -49,9 +59,17 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     CardModule,
     MultiSelectModule,
     RatingModule,
-    InputTextareaModule
+    InputTextareaModule,
+    RadioButtonModule,
+    KnobModule,
+    CascadeSelectModule,
+    DropdownModule
   ],
-  providers: [],
+  providers: [UserFormComponent, HomeComponent, {
+    provide: HTTP_INTERCEPTORS,
+    useClass: TokenInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
