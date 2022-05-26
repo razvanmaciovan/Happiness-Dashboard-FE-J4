@@ -1,6 +1,6 @@
-<p-menubar [model]="items">
+<p-menubar [model]="items" >
 
-    <p-multiSelect
+    <p-multiSelect *ngIf="showTopicList()"
         [name]="'Testing'"
         [options]="topics" 
         [(ngModel)]="selectedTopics" 
