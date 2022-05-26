@@ -50,6 +50,11 @@ export class HeaderComponent implements OnInit, DoCheck {
     return true
    }
 
+   showTopicList():boolean{
+    if(this.router.url === '/discover') return true
+    return false
+   }
+
     ngOnInit(): void{
       this.items = [
         {

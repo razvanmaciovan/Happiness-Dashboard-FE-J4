@@ -42,7 +42,6 @@ export class UserFormComponent implements OnInit {
           alert("Password is incorrect")
       }
       else{
-        console.log(data)
         this.service.saveUserData(data);
       }
 
