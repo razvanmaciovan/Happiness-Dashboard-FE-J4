@@ -26,6 +26,15 @@ export class PollService {
     return this.http.get<IPoll[]>(this.pollUrl).pipe(
       catchError(this.handleError));
     }
+  public createPoll(title:string,daysTillClosing:number,topic_id:number,status:boolean) {
+    return this.http.post(this.pollUrl,
+      {
+        "daysTillClosing": daysTillClosing,
+        "status": status,
+        "title": title,
+        "topic_id": topic_id
+      });
+  }
 
     public handleError(err: HttpErrorResponse) {
       console.log("Not found");

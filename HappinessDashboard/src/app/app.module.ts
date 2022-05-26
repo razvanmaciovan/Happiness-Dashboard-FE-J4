@@ -23,6 +23,13 @@ import { PollComponent } from './poll/poll.component';
 import { RatingModule } from 'primeng/rating';
 import {InputTextareaModule} from 'primeng/inputtextarea';
 import { TokenInterceptorService } from './token-interceptor.service';
+import { CreatePollComponent } from './poll/create-poll/create-poll.component';
+import { ViewPollsComponent } from './poll/view-polls/view-polls.component';
+import {RadioButtonModule} from 'primeng/radiobutton';
+import {KnobModule} from 'primeng/knob';
+import {CascadeSelectModule} from 'primeng/cascadeselect';
+import {DropdownModule} from 'primeng/dropdown';
+
 
 @NgModule({
   declarations: [
@@ -32,7 +39,9 @@ import { TokenInterceptorService } from './token-interceptor.service';
     HeaderComponent,
     HomeComponent,
     PageNotFoundComponent,
-    PollComponent
+    PollComponent,
+    CreatePollComponent,
+    ViewPollsComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +59,11 @@ import { TokenInterceptorService } from './token-interceptor.service';
     CardModule,
     MultiSelectModule,
     RatingModule,
-    InputTextareaModule
+    InputTextareaModule,
+    RadioButtonModule,
+    KnobModule,
+    CascadeSelectModule,
+    DropdownModule
   ],
   providers: [UserFormComponent, HomeComponent, {
     provide: HTTP_INTERCEPTORS,
