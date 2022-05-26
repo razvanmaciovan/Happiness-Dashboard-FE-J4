@@ -51,9 +51,6 @@ export class HeaderComponent implements OnInit, DoCheck {
    }
 
     ngOnInit(): void{
-
-      console.log("init")
-
       this.items = [
         {
               label: '',
@@ -77,8 +74,8 @@ export class HeaderComponent implements OnInit, DoCheck {
 
       this.topicService.getTopicList().subscribe(topics => {
         this.topics = topics as ITopic[];
-        console.log(topics);
       });
+      // console.log(this.topics) // enable for debug only. do not push to repo
 
     }
     

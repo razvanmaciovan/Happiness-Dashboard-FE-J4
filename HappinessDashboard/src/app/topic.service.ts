@@ -17,17 +17,17 @@ export class TopicService {
   readonly topicUrl = 'http://localhost:8080/api/topic/';
 
   public getTopicById(id:number):Observable<ITopic> {
-    return this.http.get<ITopic>(this.topicUrl + "get/" + id).pipe(
+    return this.http.get<ITopic>(this.topicUrl + id).pipe(
       catchError(this.handleError));
   }
 
-  // public getRecentPolls(amount:number):Observable<ITopic[]> {
-  //   return this.http.get<ITopic[]>(this.topicUrl + "last/" + amount).pipe(
-  //     catchError(this.handleError));
-  // } 
+  public getRecentPolls(amount:number):Observable<ITopic[]> {
+    return this.http.get<ITopic[]>(this.topicUrl + "last/" + amount).pipe(
+      catchError(this.handleError));
+  } 
 
   public getTopicList():Observable<ITopic[]> { /*add limit parameter*/
-    return this.http.get<ITopic[]>(this.topicUrl + "get/all").pipe(
+    return this.http.get<ITopic[]>(this.topicUrl).pipe(
       catchError(this.handleError));
     }
 
