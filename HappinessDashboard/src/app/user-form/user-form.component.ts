@@ -24,10 +24,9 @@ export class UserFormComponent implements OnInit {
 
   ngOnInit(): void {
     this.userList$ = this.service.getUsersList();
-    this.userList$.forEach(element => {
-      console.log(element);
-
-    });
+    // this.userList$.forEach(element => { // enable for debug only. do not push to repo
+    //   console.log(element);
+    // });
 
   }
 
