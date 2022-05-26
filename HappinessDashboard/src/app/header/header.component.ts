@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { MenuItem } from 'primeng/api';
 import { ITopic } from '../topic.service'
 import { TopicService } from '../topic.service';
+import { UserService } from '../user-form/user.service';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,7 @@ export class HeaderComponent implements OnInit, DoCheck {
   topics: ITopic[] = [];
   selectedTopics: ITopic[] = [];
 
-  constructor(private topicService : TopicService, private router: Router) {
+  constructor(private topicService : TopicService, private router: Router,private userService:UserService) {
   }
 
   ngDoCheck() {
@@ -25,11 +26,28 @@ export class HeaderComponent implements OnInit, DoCheck {
   
    
    CreatePoll() {
-       console.log("Create team");
+      if(this.isLoggedIn()){
+        this.router.navigate(['/create']);
+      }
+      else this.router.navigate(['/user-form']);
    }
    GoToUserForm() {
+     let currentUser = this.userService.getToken();
+      
+     if(currentUser === null) 
+     {
        if(this.router.url === '/home') window.scrollTo({top:window.innerHeight, behavior: 'smooth'});
        else this.router.navigate(['/user-form']);
+     }
+     else {
+       this.router.navigate(['/account']);
+     }
+
+   }
+   isLoggedIn(){
+    let currentUser = this.userService.getToken();
+    if(currentUser === null) return false
+    return true
    }
 
     ngOnInit(): void{
@@ -37,6 +55,11 @@ export class HeaderComponent implements OnInit, DoCheck {
       console.log("init")
 
       this.items = [
+        {
+              label: '',
+              icon: 'pi pi-fw pi-home',
+              routerLink: ['/home']
+          },
           {
               label: 'Polls',
               icon: 'pi pi-fw pi-list',
