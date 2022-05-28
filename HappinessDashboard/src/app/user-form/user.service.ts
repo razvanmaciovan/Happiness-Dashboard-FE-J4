@@ -1,6 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, throwError, windowTime } from 'rxjs';
 import { IUser } from './user-form.component';
 
 @Injectable({
@@ -8,7 +8,6 @@ import { IUser } from './user-form.component';
 })
 export class UserService {
   saveUserData(data: IUser) {
-    
     localStorage.setItem("token",window.btoa(JSON.stringify(data)))
   }
 

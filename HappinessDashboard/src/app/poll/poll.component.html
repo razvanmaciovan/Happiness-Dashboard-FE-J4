@@ -4,11 +4,13 @@
         <p class="comment">Can be found in <span style="color: var(--blue-400);">{{poll.topicName}}</span></p>
         <p-rating class="rating" [(ngModel)]="val" [cancel]="false"></p-rating>
         <div class="comment-box">
-        <span class="p-float-label">
-            <textarea id="float-input" rows="5" cols="30" pInputTextarea [(ngModel)]="comment"></textarea>
-            <label for="float-input">Leave a comment ( optional )</label>
-        </span>
+            <span class="p-float-label">
+                <textarea id="float-input" rows="5" cols="30" pInputTextarea [(ngModel)]="comment"></textarea>
+                <label for="float-input">Leave a comment ( optional )</label>
+            </span>
+            <button pButton label="Add rating" (click)="addRating()" ></button>
         </div>
+       
     </div>
     <div class="right">
 

@@ -30,6 +30,7 @@
     text-align: right;
     margin-right: 1rem;
 }
+
 .comment-box{
     margin-top: 10vh;
     display: grid;
@@ -38,6 +39,10 @@
 .rating{
     text-align: center;
 }
+.p-button {
+    margin-top: 10%;
+}
+
 @media (max-width: 768px) {
     .poll-holder{
         width: 100%;

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  template: `
+    selector: 'app-root',
+    template: `
     <input [(ngModel)]="username" #ctrl="ngModel" required>
 
     <p>Value: {{ username }}</p>
@@ -10,9 +10,9 @@ import { Component } from '@angular/core';
 
     <button (click)="setValue()">Set value</button>
   `,
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'HappinessDashboard';
+    title = 'HappinessDashboard';
 }

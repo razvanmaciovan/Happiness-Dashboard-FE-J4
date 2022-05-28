@@ -6,13 +6,13 @@ import { HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { ParamMap } from '@angular/router';
-import { ITopic, TopicService} from '../topic.service';
-export interface IPoll{
-  id:number;
-  topicName:string;
-  title:string;
-  status:boolean;
-  daysTilClosing:number;
+import { ITopic, TopicService } from '../topic.service';
+export interface IPoll {
+  id: number;
+  topicName: string;
+  title: string;
+  status: boolean;
+  daysTilClosing: number;
 }
 @Component({
   selector: 'app-home',
@@ -21,18 +21,18 @@ export interface IPoll{
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service:PollService,private route:Router,private topicService:TopicService) { 
+  constructor(private service: PollService, private route: Router, private topicService: TopicService) {
 
   }
-  
+
   pollList$: Observable<IPoll[]> | undefined;
   ngOnInit(): void {
     this.pollList$ = this.service.getRecentPolls(12);
-    
-    
+
+
   }
-  
-  
+
+
   // public getTopicNameFromPoll(topic_id:number):string{
   //   this.topicService.getTopicById(topic_id).subscribe(
   //     {
@@ -48,18 +48,18 @@ export class HomeComponent implements OnInit {
   //       });
   //       return "TEST";
   //     }
-    
 
-  
-  public openPoll(poll:IPoll):void{
-    this.route.navigate(['/poll',poll.id]);
+
+
+  public openPoll(poll: IPoll): void {
+    this.route.navigate(['/poll', poll.id]);
     //alert("Poll " + poll.id + " is opened");
   }
   // Test(){
   //   this.service.getPollById(1).subscribe((data:Observable) => {
   //     console.log(data);
   //   });
-      
+
   // }
 
 }
