@@ -1,13 +1,7 @@
-<p-menubar [model]="items" >
+<p-menubar [model]="items">
 
-    <p-multiSelect *ngIf="showTopicList()"
-        [name]="'Testing'"
-        [options]="topics" 
-        [(ngModel)]="selectedTopics" 
-        optionLabel="name"
-        display="chip"
-        defaultLabel="Select a topic">
+    <p-multiSelect *ngIf="showTopicList()" [name]="'Testing'" [options]="topics" [(ngModel)]="selectedTopics"
+        optionLabel="name" display="chip" defaultLabel="Select a topic">
     </p-multiSelect>
 
 </p-menubar>
-
