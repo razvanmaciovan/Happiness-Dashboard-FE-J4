@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { PollService } from './poll.service';
 import { ActivatedRoute, Router, UrlSegment } from '@angular/router';
 import { IPoll } from '../home/home.component';
@@ -6,6 +6,7 @@ import { UserService } from '../user-form/user.service';
 import { RoutingService } from '../routing.service';
 import { Token } from '@angular/compiler';
 import { IUser } from '../user-form/user-form.component'
+import { RatingService } from '../rating.service';
 
 
 @Component({
@@ -23,36 +24,59 @@ export class PollComponent implements OnInit {
         status: false,
         daysTilClosing: 0
     };
-    constructor(private service: PollService,
+    @ViewChild('hasVoted')
+    private hasVotedElement!: ElementRef;
+    @ViewChild('hasNotVoted')
+    private hasNotVotedElement!: ElementRef;
+    
+    constructor(private pollService: PollService,
         private activatedRoute: ActivatedRoute,
-        private routingService: RoutingService
+        private routingService: RoutingService,
+        private ratingService: RatingService
     ) { }
 
     val!: number;
     comment!: string;
     token!:string | null;
+    hasAlreadyVoted!: boolean;
 
     ngOnInit(): void {
-
         if (!this.routingService.isLoggedIn())
-            this.routingService.GoToUserForm()
-
+        this.routingService.GoToUserForm()
         this.activatedRoute.params.subscribe(params => {
-            this.service.getPollById(params['id']).subscribe(
+            this.pollService.getPollById(params['id']).subscribe(
                 {
                     next: (poll) => {
                         this.poll = poll;
                     },
                     error: (err) => {
-                        console.log(err.status);
-                        //this.route.navigate(['/error']);
+                        
+                        this.routingService.GoToErrorPage()
                     },
-                    complete: () => console.log('complete')
+                    complete: () => this.checkUserVoted()
                 }
             )
 
         });
+        
     }
+    async checkUserVoted(): Promise<void> {
+        var usr = JSON.parse(window.atob(String(localStorage.getItem("token"))))
+        var response = await this.ratingService.proceed(this.poll.id,usr.id)
+        if(response === true)
+        {
+            
+            this.hasNotVotedElement.nativeElement.remove()
+        }   
+        else {
+            
+            this.hasVotedElement.nativeElement.remove()
+        }
+    }
+
+    
+
+    
 
     addRating(): void {
 
@@ -62,9 +86,9 @@ export class PollComponent implements OnInit {
         }
         
         var usr : IUser = JSON.parse(window.atob(String(localStorage.getItem("token"))))
-
-        console.log(usr)
-
+        this.ratingService.addRating(this.val,this.poll.id,this.comment,usr).subscribe()
+        
     }
+
 
 }

@@ -38,4 +38,8 @@ export class RoutingService {
         return true
     }
 
+    GoToErrorPage() {
+        this.router.navigate(['/error']);
+    }
+
 }

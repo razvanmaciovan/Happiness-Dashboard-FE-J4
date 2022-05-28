@@ -1,4 +1,4 @@
-<div class="view">
+<div class="view" #hasNotVoted>
     <div class="poll-holder">
         <h1>{{poll.title}}</h1>
         <p class="comment">Can be found in <span style="color: var(--blue-400);">{{poll.topicName}}</span></p>
@@ -10,6 +10,18 @@
             </span>
             <button pButton label="Add rating" (click)="addRating()" ></button>
         </div>
+       
+    </div>
+    <div class="right">
+
+    </div>
+</div>
+
+<div class="view" #hasVoted>
+    <div class="poll-holder">
+        <h1>{{poll.title}}</h1>
+        <p class="comment">Can be found in <span style="color: var(--blue-400);">{{poll.topicName}}</span></p>
+        <p-rating class="rating" [(ngModel)]="val" [cancel]="false"></p-rating>
        
     </div>
     <div class="right">

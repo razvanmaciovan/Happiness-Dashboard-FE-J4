@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PollService } from '../poll.service';
 
 @Component({
     selector: 'app-view-polls',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewPollsComponent implements OnInit {
 
-    constructor() { }
+    constructor(private pollService:PollService) { }
 
     ngOnInit(): void {
     }
