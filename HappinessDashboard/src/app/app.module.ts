@@ -29,6 +29,9 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { KnobModule } from 'primeng/knob';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
 import { DropdownModule } from 'primeng/dropdown';
+import { StatisticsPollComponent } from './poll/statistics-poll/statistics-poll.component';
+import {ChartModule} from 'primeng/chart';
+
 
 
 @NgModule({
@@ -41,7 +44,8 @@ import { DropdownModule } from 'primeng/dropdown';
         PageNotFoundComponent,
         PollComponent,
         CreatePollComponent,
-        ViewPollsComponent
+        ViewPollsComponent,
+        StatisticsPollComponent
     ],
     imports: [
         BrowserModule,
@@ -63,7 +67,8 @@ import { DropdownModule } from 'primeng/dropdown';
         RadioButtonModule,
         KnobModule,
         CascadeSelectModule,
-        DropdownModule
+        DropdownModule,
+        ChartModule
     ],
     providers: [UserFormComponent, HomeComponent, {
         provide: HTTP_INTERCEPTORS,

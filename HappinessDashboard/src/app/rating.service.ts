@@ -47,4 +47,12 @@ export class RatingService {
     return of(true);
   }
 
+  public getAvgRating(pollId:number):Observable<number>{
+    return this.http.get<number>(this.ratingUrl+"avg/"+pollId)
+  }
+
+  public getRatingsByPollId(pollId:number):Observable<any>{
+    return this.http.get<any>(this.ratingUrl+pollId)
+  }
+
 }
