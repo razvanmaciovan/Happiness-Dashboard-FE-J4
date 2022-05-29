@@ -4,12 +4,16 @@ import { IPoll } from 'src/app/home/home.component';
 import { RatingService } from 'src/app/rating.service';
 import { RoutingService } from 'src/app/routing.service';
 import { PollService } from '../poll.service';
+import { IComment } from 'src/app/rating.service'
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-statistics-poll',
   templateUrl: './statistics-poll.component.html',
   styleUrls: ['./statistics-poll.component.css']
 })
+
+
 export class StatisticsPollComponent implements OnInit {
 
   constructor(private ratingService:RatingService,
@@ -26,14 +30,16 @@ export class StatisticsPollComponent implements OnInit {
     4: number;
     5: number;
   };
+  commentList$!: Observable<IComment[]> | undefined;
     
   ngOnInit(): void {
+    this.commentList$ = this.ratingService.getLastNComments(this.activatedRoute.snapshot.params['id'],5);
     this.activatedRoute.params.subscribe(params => {
       this.pollService.getPollById(params['id']).subscribe(
           {
               next: (poll) => {
                   this.poll = poll;
-                  console.log(this.poll)
+                  
               },
               error: (err) => {
                   
@@ -63,7 +69,8 @@ export class StatisticsPollComponent implements OnInit {
       }
   )
 });
-  }
+
+}
 
   getRatingList(){
     this.activatedRoute.params.subscribe(params => {
@@ -88,7 +95,6 @@ export class StatisticsPollComponent implements OnInit {
     )
   });
   }
-
 
   getPollStatistics(){
     this.data = {

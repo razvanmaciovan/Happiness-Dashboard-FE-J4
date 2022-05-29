@@ -5,6 +5,12 @@ import { catchError, throwError } from 'rxjs';
 import { IUser } from './user-form/user-form.component';
 import { of } from 'rxjs';
 
+export interface IComment{
+  id: number,
+  pollId: number,
+  comment: string,
+  dateOfCreation: Date
+}
 @Injectable({
   providedIn: 'root'
 })
@@ -12,15 +18,28 @@ export class RatingService {
 
   constructor(private http:HttpClient) { }
   readonly ratingUrl = 'http://localhost:8080/api/rating/';
+  readonly commentUrl = 'http://localhost:8080/api/comment';
 
   addRating(grade:number,pollId:number,comment:string,user:any){ 
+    this.addComment(pollId,comment).subscribe();
     return this.http.post(this.ratingUrl,
       {
         "grade": grade,
         "pollId": pollId,
-        "comment": comment,
         "user": user
       });
+  }
+
+  getLastNComments(pollId:number,n:number):Observable<IComment[]>{
+    return this.http.get<IComment[]>(this.commentUrl+"/last/"+pollId+"/"+n);
+  }
+
+  addComment(pollId:number,comment:string){
+    return this.http.post(this.commentUrl,
+      {
+        "comment": comment,
+        "pollId": pollId
+      })
   }
 
   status: boolean = false;

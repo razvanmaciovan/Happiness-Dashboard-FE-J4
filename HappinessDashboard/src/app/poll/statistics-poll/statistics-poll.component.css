@@ -22,9 +22,8 @@
     border-top-style: solid;
     border-top-color: var(--surface-d);
 }
-.chart-holder{
+.comment-holder{
     background: var(--surface-b);
-    height: 80vh;
     flex:0.69;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
@@ -74,6 +73,34 @@
         height: 50vh;
     }
     .view{
-        width: 100%;
+        width: 100vw;
+        flex-flow: column wrap;
+        justify-content: center;
     }
+    .comment-holder{
+        width: 100%;
+        height: 50vh;
+    }
+    .flexbox-item{
+        width: 15rem;
+    }
+}
+
+.flexbox {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    width:100%;
+    margin-top: 2rem;
+
+}
+
+.flexbox-item {
+    width: 30rem;
+    flex-grow: 1;
+    height: 5rem;
+    margin: 5px;
+    background: var(--surface-a)
 }

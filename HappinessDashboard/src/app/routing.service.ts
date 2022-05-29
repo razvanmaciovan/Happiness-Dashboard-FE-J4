@@ -46,4 +46,11 @@ export class RoutingService {
         this.router.navigate(['/error']);
     }
 
+    GoHome(){
+        this.router.navigate(['/home']);
+    }
+    GoToDiscover(){
+        this.router.navigate(['/discover']);
+    }
+
 }
