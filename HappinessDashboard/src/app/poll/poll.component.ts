@@ -76,8 +76,17 @@ export class PollComponent implements OnInit {
 
     
 
+    saveCurrentPollData(data: IPoll) {
+        sessionStorage.setItem("viewPoll",window.btoa(JSON.stringify(data)))
+      }
+    getCurrentToken(): string | null {
+        return localStorage.getItem("token")
+    }
     
-
+    viewResults(): void {
+        this.saveCurrentPollData(this.poll)
+        this.routingService.goToPollResults(this.poll.id)
+    }
     addRating(): void {
 
         if(this.val == null) {
@@ -87,6 +96,7 @@ export class PollComponent implements OnInit {
         
         var usr : IUser = JSON.parse(window.atob(String(localStorage.getItem("token"))))
         this.ratingService.addRating(this.val,this.poll.id,this.comment,usr).subscribe()
+        this.routingService.goToPollResults(this.poll.id)
         
     }
 

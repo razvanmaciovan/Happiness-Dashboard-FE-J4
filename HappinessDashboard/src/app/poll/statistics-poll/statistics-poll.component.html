@@ -1,0 +1,18 @@
+<div class="view" #hasNotVoted>
+    <div class="poll-holder">
+        <h1>Statistics for</h1>
+        <h1>{{poll.title}}</h1>
+        <p-chart type="pie" [data]="data" [style]="{'width': '10%'}"></p-chart>
+       
+    </div>
+    <div class="comment-holder">
+        <h1 style="text-align: center; overflow: hidden;">See how other voters feel about this</h1>
+        <h2 style="text-align: center; overflow: hidden;">Average rating for this poll: {{this.average}} <i class = "pi pi-star-fill"></i></h2>
+        <div class="flexbox">
+            <div class="flexbox-item" *ngFor="let item of commentList$|async">
+                <h1>{{item.comment}}</h1>
+            </div>
+
+        </div>
+    </div>
+</div>

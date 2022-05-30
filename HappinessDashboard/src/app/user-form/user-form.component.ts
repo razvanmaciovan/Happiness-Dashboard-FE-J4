@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
+import { RoutingService } from '../routing.service';
 import { UserService } from './user.service';
 
 export interface IUser {
@@ -19,7 +20,7 @@ export class UserFormComponent implements OnInit {
     username!: string;
     password!: string | undefined;
 
-    constructor(private service: UserService) { }
+    constructor(private service: UserService, private route: RoutingService) { }
 
 
     ngOnInit(): void {
@@ -41,7 +42,30 @@ export class UserFormComponent implements OnInit {
                 }
                 else {
                     this.service.saveUserData(data);
+                    this.route.GoToDiscover();
+                    
                 }
+
+
+            });
+        }
+        else {
+            alert(this.CheckUsername(this.username));
+        }
+    }
+    LoginWithParams(username: string, password: string) {
+        if (this.CheckUsername(username) == true) {
+            this.service.getUserByUsername(username).subscribe((data: any) => {
+                if (data == null) {
+                    alert("User not found");
+                }
+                else if (password != data.password) {
+                    alert("Password is incorrect")
+                }
+                else {
+                    this.service.saveUserData(data);
+                }
+                this.route.GoHome();
 
 
             });

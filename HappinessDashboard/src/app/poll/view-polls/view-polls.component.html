@@ -1,1 +1,11 @@
-<p>view-polls works!</p>
+<div class="flexbox">
+    <div class="flexbox-item" *ngFor="let item of pollList$|async" (click)="openPoll(item)">
+        <div class="titlebar">
+            <p>{{item.topicName}}</p>
+        </div>
+        <h1>
+            {{item.title}}
+        </h1>
+    </div>
+
+</div>

@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PollComponent } from './poll/poll.component';
 import { CreatePollComponent } from './poll/create-poll/create-poll.component';
 import { ViewPollsComponent } from './poll/view-polls/view-polls.component';
+import { StatisticsPollComponent } from './poll/statistics-poll/statistics-poll.component';
 import { AccountManagementComponent } from './account-management/account-management.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
     { path: 'user-form', component: UserFormComponent },
     { path: 'signup-form', component: SignupComponent },
     { path: 'poll/:id', component: PollComponent },
+    { path: 'poll/results/:id', component: StatisticsPollComponent },
     { path: 'create', component: CreatePollComponent },
     { path: 'discover', component: ViewPollsComponent },
     { path: 'account', component: AccountManagementComponent},
