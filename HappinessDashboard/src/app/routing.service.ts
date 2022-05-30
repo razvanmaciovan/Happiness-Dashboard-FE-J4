@@ -19,6 +19,10 @@ export class RoutingService {
         private userService: UserService) {
     }
 
+    GoToAccountManagement() {
+        let currentUser = this.userService.getToken();
+    }
+
     GoToUserForm() {
         let currentUser = this.userService.getToken();
 

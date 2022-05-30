@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PollComponent } from './poll/poll.component';
 import { CreatePollComponent } from './poll/create-poll/create-poll.component';
 import { ViewPollsComponent } from './poll/view-polls/view-polls.component';
+import { AccountManagementComponent } from './account-management/account-management.component';
 
 const routes: Routes = [
     { path: 'home', component: HomeComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
     { path: 'poll/:id', component: PollComponent },
     { path: 'create', component: CreatePollComponent },
     { path: 'discover', component: ViewPollsComponent },
+    { path: 'account', component: AccountManagementComponent},
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: '**', component: PageNotFoundComponent }
 ];
