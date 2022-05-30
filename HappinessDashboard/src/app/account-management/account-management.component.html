@@ -1,7 +1,29 @@
 <div class="mainView">
-    <div class="test">
-        <p-toolbar>
-            <p-button label="Sign out" icon="pi pi-sign-out" (onClick)="signOut($event)"></p-button>
-        </p-toolbar>
+    <p-button label="Sign out" icon="pi pi-sign-out" (onClick)="signOut($event)" ></p-button>
+    
+    <div class="container">
+        <div class = "userData">
+            <span class="p-float-label">
+                <input id="username" type="text" pInputText disabled=true> 
+                <label for="float-input">{{username}}</label>
+            </span>
+            <span class="p-float-label">
+                <input id="old_password" type="password" pInputText [(ngModel)]="old_password"> 
+                <label for="float-input">Old Password</label>
+            </span>
+            <span class="p-float-label">
+                <input id="new_password" type="password" pInputText [(ngModel)]="new_password"> 
+                <label for="float-input">New Password</label>
+            </span>
+            <span class="p-float-label">
+                <input id="confirm_new_password" type="password" pInputText [(ngModel)]="confirm_new_password"> 
+                <label for="float-input">Confirm new Password</label>
+            </span>
+        </div>
+        <div class="buttons">
+            
+            <p-button label="Update Password" (onClick)="updatePassword($event)"></p-button>
+        </div>
     </div>
+    
 </div>

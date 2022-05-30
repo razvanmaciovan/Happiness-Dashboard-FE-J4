@@ -21,6 +21,11 @@ export class UserService {
     return this.http.post(this.configUrl + "register" , { "username": username,
                                                                 "password": password} );
   }
+
+  updateUser(user: IUser) {
+    return this.http.put(this.configUrl + "update/" + user.userId, user)
+    .pipe(catchError(this.handleError));
+  }
     
   getUsersList():Observable<IUser[]> {
     return this.http.get<IUser[]>(this.configUrl + "users").pipe(

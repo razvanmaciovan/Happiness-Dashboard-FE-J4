@@ -1,7 +1,12 @@
 .mainView {
     margin-top: 100px;
-    display: flex;
+    display:flex;
     justify-content: center;
     align-items: center;
 }
+
+.userData {
+    display: block;
+}
+
 
