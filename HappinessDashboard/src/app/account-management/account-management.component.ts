@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RoutingService } from '../routing.service';
 
 
 @Component({
@@ -8,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AccountManagementComponent implements OnInit {
 
-    constructor() { }
+    constructor(private routingService: RoutingService) { }
 
     ngOnInit(): void {
-        console.log("test");
+        
+    }
+
+    signOut(event : any) {
+        localStorage.removeItem("token")
+        this.routingService.GoHome()
     }
 
 }
