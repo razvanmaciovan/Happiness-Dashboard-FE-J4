@@ -85,7 +85,8 @@ export class PollComponent implements OnInit {
     
     viewResults(): void {
         this.saveCurrentPollData(this.poll)
-        this.routingService.goToPollResults(this.poll.id)
+        setTimeout(() => {this.routingService.goToPollResults(this.poll.id) }, 2000)
+        
     }
     addRating(): void {
 
