@@ -58,7 +58,6 @@ export class CreatePollComponent implements OnInit {
         }
         this.service.createPoll(this.title, this.daysTillClosing, this.topics.indexOf(this.selectedTopic) + 1, statusConv).subscribe();
         setTimeout( () => { this.routingService.router.navigate(['']); }, 2000)
-        
     }
 
 }

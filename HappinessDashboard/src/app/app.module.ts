@@ -29,8 +29,11 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { KnobModule } from 'primeng/knob';
 import { CascadeSelectModule } from 'primeng/cascadeselect';
 import { DropdownModule } from 'primeng/dropdown';
+
 import { StatisticsPollComponent } from './poll/statistics-poll/statistics-poll.component';
 import {ChartModule} from 'primeng/chart';
+import { ToolbarModule } from 'primeng/toolbar';
+import { AccountManagementComponent } from './account-management/account-management.component';
 
 
 
@@ -44,6 +47,8 @@ import {ChartModule} from 'primeng/chart';
         PageNotFoundComponent,
         PollComponent,
         CreatePollComponent,
+        ViewPollsComponent,
+        AccountManagementComponent,
         ViewPollsComponent,
         StatisticsPollComponent
     ],
@@ -68,6 +73,8 @@ import {ChartModule} from 'primeng/chart';
         KnobModule,
         CascadeSelectModule,
         DropdownModule,
+        DropdownModule,
+        ToolbarModule,
         ChartModule
     ],
     providers: [UserFormComponent, HomeComponent, {
