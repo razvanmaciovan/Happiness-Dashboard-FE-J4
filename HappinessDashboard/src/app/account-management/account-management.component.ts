@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { RoutingService } from '../routing.service';
 import { IUser } from '../user-form/user-form.component';
 import { UserService } from '../user-form/user.service';
-import { passwordStrength } from 'check-password-strength'
 
 
 @Component({
@@ -51,18 +50,6 @@ export class AccountManagementComponent implements OnInit {
             return
         }
 
-        var result = passwordStrength(this.new_password).value
-
-        if ( result === "Too weak" || result === "Weak") {
-            alert("Password too weak.")
-            return
-        }
-
-        if ( passwordStrength(this.new_password).value === "Medium" && this.confirmPassword == false) {
-            alert("Password strength rated at 'Medium'. Click on update password again to confirm current password.")
-            this.confirmPassword = true
-            return
-        }
 
         if(this.confirmPassword)
             this.confirmPassword = false
@@ -72,8 +59,9 @@ export class AccountManagementComponent implements OnInit {
             userName : this.usr.username,
             userPassword : this.new_password
         }
-
         this.userService.updateUser(temp).subscribe()
+        setTimeout(() => {this.routingService.GoHome()},1000)
+        
         
     }
 

@@ -23,7 +23,11 @@ export class UserService {
   }
 
   updateUser(user: IUser) {
-    return this.http.put(this.configUrl + "update/" + user.userId, user)
+    return this.http.put(this.configUrl + "update/" + user.userId, {
+      "password": user.userPassword,
+      "username": user.userName
+
+    })
     .pipe(catchError(this.handleError));
   }
     
