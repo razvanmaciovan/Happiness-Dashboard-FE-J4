@@ -32,6 +32,10 @@ export class RoutingService {
 
     }
 
+    goToPollResults(id: number) {
+        this.router.navigate(['/poll/results/', id]);
+    }
+
     isLoggedIn() {
         let currentUser = this.userService.getToken();
         if (currentUser === null) return false
@@ -40,6 +44,13 @@ export class RoutingService {
 
     GoToErrorPage() {
         this.router.navigate(['/error']);
+    }
+
+    GoHome(){
+        this.router.navigate(['/home']);
+    }
+    GoToDiscover(){
+        this.router.navigate(['/discover']);
     }
 
 }

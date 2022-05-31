@@ -1,9 +1,11 @@
 .view{
     position: relative;
+    display: flex;
+    justify-content: space-between;
     margin-left: auto;
     margin-right: auto;
     margin-top: 7rem;
-    width: 60%;
+    width: 100%;
     background: transparent;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
@@ -14,7 +16,15 @@
 .poll-holder{
     background: var(--surface-b);
     height: 80vh;
-    width: 100%;
+    flex:0.3;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-top-style: solid;
+    border-top-color: var(--surface-d);
+}
+.comment-holder{
+    background: var(--surface-b);
+    flex:0.69;
     border-top-left-radius: 6px;
     border-top-right-radius: 6px;
     border-top-style: solid;
@@ -63,6 +73,35 @@
         height: 50vh;
     }
     .view{
-        width: 100%;
+        width: 100vw;
+        flex-flow: column wrap;
+        justify-content: center;
     }
+    .comment-holder{
+        width: 100%;
+        height: 50vh;
+    }
+    .flexbox-item{
+        width: 15rem;
+    }
+}
+
+.flexbox {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    width:100%;
+    margin-top: 2rem;
+
+}
+
+.flexbox-item {
+    width: 30rem;
+    flex-grow: 1;
+    margin: 5px;
+    background: var(--surface-a);
+    text-align: center;
+    
 }

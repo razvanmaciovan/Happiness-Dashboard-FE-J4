@@ -21,7 +21,9 @@
     <div class="poll-holder">
         <h1>{{poll.title}}</h1>
         <p class="comment">Can be found in <span style="color: var(--blue-400);">{{poll.topicName}}</span></p>
-        <p-rating class="rating" [(ngModel)]="val" [cancel]="false"></p-rating>
+        <h2>You have already voted in this poll</h2>
+        <h2> Press the button below to view the results</h2>
+        <button pButton label="View results" (click)="viewResults()" ></button>
        
     </div>
     <div class="right">
