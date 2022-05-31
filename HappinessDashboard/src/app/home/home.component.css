@@ -26,7 +26,7 @@
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 7rem;
+    margin-top: 5rem;
     width: 70%;
     height: 100%;
     background: radial-gradient(circle, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.1) 100%);
@@ -83,7 +83,11 @@
     font-size: 0.7rem;
     margin: 0 auto;
 }
-
+.intro{
+    margin-top: 5rem;
+    margin-bottom: 0 auto;
+    text-align: center;
+}
 /* @media (max-width:360px){
     .flexbox-item{
         height: 220px;

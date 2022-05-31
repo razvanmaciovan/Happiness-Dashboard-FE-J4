@@ -100,7 +100,8 @@
 .flexbox-item {
     width: 30rem;
     flex-grow: 1;
-    height: 5rem;
     margin: 5px;
-    background: var(--surface-a)
+    background: var(--surface-a);
+    text-align: center;
+    
 }
